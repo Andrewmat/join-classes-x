@@ -1,0 +1,21 @@
+{
+  "name": "join-classes",
+  "version": "0.1.0",
+  "description": "Function to ease the process of writing and reading of classes in JSX and TSX code",
+  "main": "index.ts",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "class",
+    "join",
+    "jsx",
+    "tsx"
+  ],
+  "author": "andrewmat",
+  "license": "ISC",
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "mocha": "^5.0.1"
+  }
+}
