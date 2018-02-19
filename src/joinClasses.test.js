@@ -1,5 +1,4 @@
 const joinClasses = require('../src/joinClasses');
-const assert = require('assert');
 
 const styleModule = {
   'first': 'module__first',
@@ -7,59 +6,55 @@ const styleModule = {
 };
 
 describe('joinClasses', () => {
-
   it('No Module', () => {
-    assert.throws(() => {
+    expect(() => {
       joinClasses('first', 'second');
-    }, Error);
+    }).toThrow(Error);
   });
-
   it('Only Module', () => {
-    assert.equal(joinClasses(styleModule), '');
+    expect(joinClasses(styleModule)).toBe('');
   });
-
   it('Module + One string', () => {
-    assert.equal(joinClasses(styleModule, 'first'), 'module__first');
+    expect(joinClasses(styleModule, 'first')).toBe('module__first');
   });
-
   it('Module + Two strings', () => {
-    assert.equal(joinClasses(styleModule, 'first', 'second'), 'module__first module__second');
+    expect(joinClasses(styleModule, 'first', 'second')).toBe('module__first module__second');
   });
 
   describe('#withStyle', () => {
     it('No module', () => {
-      assert.throws(() => {
+      expect(() => {
         joinClasses.withStyle();
-      }, Error);
+      }).toThrow(Error);
     });
 
     describe('(module)', () => {
       let classes;
-      before(() => {
+      beforeAll(() => {
         classes = joinClasses.withStyle(styleModule);
       });
 
       it('No arguments', () => {
-        assert.equal(classes(), '');
-      })
+        expect(classes()).toBe('');
+      });
       it('One string', () => {
-        assert.equal(classes('first'), 'module__first');
-      })
+        expect(classes('first')).toBe('module__first');
+      });
       it('Two strings', () => {
-        assert.equal(classes('first', 'second'), 'module__first module__second');
-      })
+        expect(classes('first', 'second')).toBe('module__first module__second');
+      });
     });
   })
 
   describe('#only', () => {
     it('No arguments', () => {
-      assert.equal(joinClasses.only(), '');
+      expect(joinClasses.only()).toBe('');
     });
     it('One string', () => {
-      assert.equal(joinClasses.only('first'), 'first');
+      expect(joinClasses.only('first')).toBe('first');
     });
     it('Two strings', () => {
-      assert.equal(joinClasses.only('first', 'second'), 'first second');
+      expect(joinClasses.only('first', 'second')).toBe('first second')
     });
   })
 });

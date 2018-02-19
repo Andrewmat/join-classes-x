@@ -4,7 +4,8 @@
   "description": "Function to ease the process of writing and reading of classes in JSX and TSX code",
   "main": "index.ts",
   "scripts": {
-    "test": "mocha"
+    "test": "jest",
+    "test:watch": "jest --watch /*.test.js"
   },
   "keywords": [
     "class",
@@ -15,7 +16,6 @@
   "author": "andrewmat",
   "license": "ISC",
   "devDependencies": {
-    "assert": "^1.4.1",
-    "mocha": "^5.0.1"
+    "jest": "^22.3.0"
   }
 }
