@@ -12,7 +12,7 @@ joinClasses.withStyle = (stylesModule) => {
 
 function checkStylesModule(stylesModule) {
   if (typeof stylesModule !== 'object') {
-    throw new Error('A style module should be specified. You may want to use joinClasses.only');
+    throw new Error('A style module should be specified');
   }
 }
 
