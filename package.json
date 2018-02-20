@@ -15,6 +15,10 @@
   ],
   "author": "andrewmat",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Andrewmat/join-classes-x.git"
+  },
   "devDependencies": {
     "jest": "^22.3.0"
   }
