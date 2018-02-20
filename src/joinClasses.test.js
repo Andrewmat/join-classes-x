@@ -6,55 +6,38 @@ const styleModule = {
 };
 
 describe('joinClasses', () => {
-  it('No Module', () => {
-    expect(() => {
-      joinClasses('first', 'second');
-    }).toThrow(Error);
+
+  it('No arguments', () => {
+    expect(joinClasses()).toBe('');
   });
-  it('Only Module', () => {
-    expect(joinClasses(styleModule)).toBe('');
+  it('One string', () => {
+    expect(joinClasses('first')).toBe('first');
   });
-  it('Module + One string', () => {
-    expect(joinClasses(styleModule, 'first')).toBe('module__first');
-  });
-  it('Module + Two strings', () => {
-    expect(joinClasses(styleModule, 'first', 'second')).toBe('module__first module__second');
+  it('Two strings', () => {
+    expect(joinClasses('first', 'second')).toBe('first second');
   });
 
   describe('#withStyle', () => {
+
     it('No module', () => {
       expect(() => {
         joinClasses.withStyle();
       }).toThrow(Error);
     });
 
-    describe('(module)', () => {
-      let classes;
-      beforeAll(() => {
-        classes = joinClasses.withStyle(styleModule);
-      });
+    it('Only module', () => {
+      expect(joinClasses.withStyle(styleModule)())
+        .toBe('');
+    });
 
-      it('No arguments', () => {
-        expect(classes()).toBe('');
-      });
-      it('One string', () => {
-        expect(classes('first')).toBe('module__first');
-      });
-      it('Two strings', () => {
-        expect(classes('first', 'second')).toBe('module__first module__second');
-      });
+    it('Module + one string', () => {
+      expect(joinClasses.withStyle(styleModule)('first'))
+        .toBe('module__first');
     });
-  })
 
-  describe('#only', () => {
-    it('No arguments', () => {
-      expect(joinClasses.only()).toBe('');
-    });
-    it('One string', () => {
-      expect(joinClasses.only('first')).toBe('first');
-    });
-    it('Two strings', () => {
-      expect(joinClasses.only('first', 'second')).toBe('first second')
+    it('Module + two strings', () => {
+      expect(joinClasses.withStyle(styleModule)('first', 'second'))
+        .toBe('module__first module__second')
     });
   })
 });

@@ -1,20 +1,19 @@
-function joinClasses(stylesModule, ...classes) {
-  checkStylesModule(stylesModule);
-  return classes.map(c => stylesModule[c]).join(' ');
+
+function joinClasses(...classes) {
+  return (classes || []).join(' ');
 }
 
-joinClasses.withStyle = function(stylesModule) {
+joinClasses.withStyle = (stylesModule) => {
   checkStylesModule(stylesModule);
-  return joinClasses.bind(this, stylesModule);
-}
-
-joinClasses.only = function(...classes) {
-  return classes.join(' ');
+  return (...classes) => {
+    return classes.map(c => stylesModule[c]).join(' ');
+  }
 }
 
 function checkStylesModule(stylesModule) {
-  if (typeof stylesModule !== 'object')
+  if (typeof stylesModule !== 'object') {
     throw new Error('A style module should be specified. You may want to use joinClasses.only');
+  }
 }
 
 module.exports = joinClasses;
