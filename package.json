@@ -1,8 +1,8 @@
 {
-  "name": "join-classes",
-  "version": "0.2.1",
+  "name": "join-classes-x",
+  "version": "0.2.2",
   "description": "Function to ease the process of writing and reading of classes in JSX and TSX code",
-  "main": "index.ts",
+  "main": "index.js",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch /*.test.js"
