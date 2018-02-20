@@ -1,6 +1,6 @@
 {
   "name": "join-classes-x",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Function to ease the process of writing and reading of classes in JSX and TSX code",
   "main": "index.js",
   "scripts": {
