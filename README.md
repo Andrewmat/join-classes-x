@@ -4,21 +4,25 @@ Simple functions to ease the process of joining classes in jsx and tsx files.
 
 ## Usage
 
-### joinClasses
+This module contains currently 2 functions:
+* `joinClasses()`
+* `joinClasses.withModule()`
 
-It can be used as a simple string join with space as separator
+### joinClasses()
+
+`joinClasses` simply joins multiple classes with space as separator
 
 ```jsx
 const joinClasses = require('join-classes-x');
 
 // ...
 
-<Component className={joinClasses('input', 'input-disabled')}/>
+<Component className={joinClasses('input', 'input-disabled')}/>  // -> 'input input-disabled'
 ```
 
 ### joinClasses.withStyle(style)
 
-It comes with function to attach a style module and improve code legibility
+`joinClasses.withStyle()` attaches a style module to improve code legibility. It
 
 ```jsx
 const joinClasses = require('join-classes-x');
@@ -28,7 +32,7 @@ const classes = joinClasses.withStyle(styles);
 
 // ...
 
-<Component className={classes('button', 'button-primary')}/>
-<Component className={classes('button', 'button-secondary')}/>
-<Component className={classes('button', 'button-disabled')}/>
+<Component className={classes('button', 'button-primary')}/>   // -> 'component__button component__button-primary'
+<Component className={classes('button', 'button-secondary')}/> // -> 'component__button component__button-secondary'
+<Component className={classes('button', 'button-disabled')}/>  // -> 'component__button component__button-disabled'
 ```
