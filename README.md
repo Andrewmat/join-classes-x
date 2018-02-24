@@ -22,7 +22,7 @@ const joinClasses = require('join-classes-x');
 
 ### joinClasses.withStyle(style)
 
-`joinClasses.withStyle()` attaches a style module to improve code legibility. It
+`joinClasses.withStyle()` attaches a style module to improve code legibility.
 
 ```jsx
 const joinClasses = require('join-classes-x');
