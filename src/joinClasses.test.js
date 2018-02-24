@@ -37,7 +37,7 @@ describe('joinClasses', () => {
 
     it('Module + two strings', () => {
       expect(joinClasses.withStyle(styleModule)('first', 'second'))
-        .toBe('module__first module__second')
+        .toBe('module__first module__second');
     });
-  })
+  });
 });

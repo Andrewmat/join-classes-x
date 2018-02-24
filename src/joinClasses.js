@@ -7,8 +7,8 @@ joinClasses.withStyle = (stylesModule) => {
   checkStylesModule(stylesModule);
   return (...classes) => {
     return classes.map(c => stylesModule[c]).join(' ');
-  }
-}
+  };
+};
 
 function checkStylesModule(stylesModule) {
   if (typeof stylesModule !== 'object') {
